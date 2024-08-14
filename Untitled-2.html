@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختيار الإجابة الصحيحة</title>
+</head>
+<body>
+    <h1>هل هذا العبارة صحيحة أم خاطئة؟</h1>
+    
+    <p>HTML هو لغة تم استخدامها لبناء صفحات الويب.</p>
+
+    <form>
+        <label>
+            <input type="radio" name="answer" value="true"> صحيح
+        </label>
+        <label>
+            <input type="radio" name="answer" value="false"> خاطئ
+        </label>
+        <br>
+        <button type="button" onclick="checkAnswer()">تحقق</button>
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+        function checkAnswer() {
+            var selectedAnswer = document.querySelector('input[name="answer"]:checked');
+
+            if (selectedAnswer) {
+                var resultElement = document.getElementById("result");
+                var isCorrect = selectedAnswer.value === "true";
+
+                if (isCorrect) {
+                    resultElement.textContent = "إجابة صحيحة!";
+                } else {
+                    resultElement.textContent = "إجابة خاطئة!";
+                }
+            } else {
+                alert("الرجاء اختيار إجابة.");
+            }
+        }
+    </script>
+</body>
+</html>
